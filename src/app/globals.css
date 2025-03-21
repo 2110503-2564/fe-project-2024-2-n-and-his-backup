@@ -1,26 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;800&display=swap');
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Base Colors */
+  --color-base-light: #ffffff; /* Pure white */
+  --color-base-gray: #f7f8fa; /* Very light gray for backgrounds */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Primary Accent Colors */
+  --color-primary-teal: #009688; /* Bold teal */
+  --color-primary-turquoise: #00bfa5; /* Bright turquoise */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Secondary Accent Colors */
+  --color-secondary-orange: #ff5722; /* Bright orange */
+  --color-secondary-coral: #ff7043; /* Lighter coral orange */
+
+  /* Highlight Colors */
+  --color-highlight-lime: #cddc39; /* Lime green */
+  --color-highlight-yellow: #ffeb3b; /* Vibrant yellow */
+
+  /* Text and Shadows */
+  --color-text-dark: #333333; /* Dark gray for text */
+  --color-text-light: #f7f8fa; /* Light text on dark backgrounds */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+  /* Button Hover and Focus */
+  --color-hover-teal: #00796b; /* Darker teal */
+  --color-hover-orange: #e64a19; /* Darker orange */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  font-family: "Montserrat Alternates", sans-serif;
 }
