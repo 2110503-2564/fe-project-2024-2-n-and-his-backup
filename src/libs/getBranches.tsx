@@ -13,6 +13,13 @@ export default async function getBranches() {
             address: "test test test test ",
             tel: "099-999-9999",
             image: "/img/2.png",
+        },
+        {   
+            id: "Y9ZXSO318QRQTRC",
+            name: "The Massage Shop of BossN",
+            address: "test test test test ",
+            tel: "099-999-9999",
+            image: "/img/2.png",
         }
     ];
 }

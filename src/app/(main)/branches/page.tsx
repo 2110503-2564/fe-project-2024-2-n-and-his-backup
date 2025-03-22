@@ -23,18 +23,24 @@ async function BranchesList({getBranches} : {getBranches: Promise<Array<any>>}) 
                         sizes="100vw"
                         className="object-cover w-full"/>
                         <div className="p-2 text-white">
+
                             <div className="text-2xl font-bold">{item.name}</div>
+                            
                             <div className="p-3 space-y-3">
                                 <div className='space-x-4'>
                                     <i className="fa-solid fa-location-dot"></i>
+
                                     <div className='inline'>{item.address}</div>
                                 </div>
+
                                 <div className='space-x-4'>
                                     <i className="fa-solid fa-phone"></i>
+
                                     <div className='inline'>{item.tel}</div>
                                 </div>
                             </div>
                         </div>
+                        
                         <Link href={"/branches/" + item.id} className='px-5 py-2 bg-white w-fit rounded font-bold hover:bg-green-300 duration-100'>View</Link>
                     </div> 
                 ))
