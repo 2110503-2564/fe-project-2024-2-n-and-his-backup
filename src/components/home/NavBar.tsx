@@ -12,6 +12,13 @@ export default async function NavBar() {
                 <NavBarItem href="/" content="Home"/>
 
                 <NavBarItem href="/branches" content="Branches"/>
+
+                {
+                    session ? (
+                        <NavBarItem href="/CreateAppointment" content="Appointment"/>
+                    )
+                    : null
+                }
             </nav>
 
             <nav>
@@ -40,4 +47,5 @@ export default async function NavBar() {
             </nav>
         </header>
     );
+
 }
