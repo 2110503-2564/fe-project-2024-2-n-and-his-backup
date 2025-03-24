@@ -54,7 +54,7 @@ export default function LogInForm() {
     <div className="w-full h-auto">
       <form action={handleSubmit} className="flex flex-col gap-6 items-start text-white">
         <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[80%] gap-3">
-          <MdEmail className="text-[1.8rem]"/>
+          <MdEmail className="text-[1.6rem]"/>
 
           <input
             type="email"
@@ -68,7 +68,7 @@ export default function LogInForm() {
         </div>
 
         <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[80%] gap-3">
-          <RiLockPasswordFill className="text-[1.8rem]"/>
+          <RiLockPasswordFill className="text-[1.6rem]"/>
 
           <input
             type="password"
@@ -81,9 +81,10 @@ export default function LogInForm() {
             />
         </div>
 
-        <button type="submit" className="block rounded-md mt-4 bg-green-500 w-fit text-black text-[1.6rem] font-bold px-10 py-2 hover:bg-green-300 cursor-pointer">Log In</button>
-
         {error && <p style={{ color: 'red' }}>{error}</p>}
+        
+        <button type="submit" className="block rounded-md mt-3 bg-amber-600 w-fit text-black text-[1.35rem] font-bold px-10 py-2 hover:bg-amber-300 cursor-pointer">Log In</button>
+
       </form>
     </div>
   );

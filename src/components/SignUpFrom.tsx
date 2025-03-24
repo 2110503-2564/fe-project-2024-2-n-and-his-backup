@@ -18,7 +18,7 @@ export default function SignUpFrom() {
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
-    // To-do lists
+    // function for sign up
   };
 
   function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -41,8 +41,8 @@ export default function SignUpFrom() {
   return(
     <div className="w-full h-auto">
       <form action={handleSubmit} className="flex flex-col gap-6 justify-center items-center text-white">
-        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <IoPersonSharp className="text-[1.8rem]"/>
+        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
+          <IoPersonSharp className="text-[1.6rem]"/>
 
           <input
             type="text"
@@ -55,8 +55,8 @@ export default function SignUpFrom() {
             />
         </div>
 
-        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <FaPhoneAlt className="text-[1.8rem]"/>
+        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
+          <FaPhoneAlt className="text-[1.6rem]"/>
 
           <input
             type="tel"
@@ -69,8 +69,8 @@ export default function SignUpFrom() {
             />
         </div>
         
-        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <MdEmail className="text-[1.8rem]"/>
+        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
+          <MdEmail className="text-[1.6rem]"/>
 
           <input
             type="email"
@@ -83,8 +83,8 @@ export default function SignUpFrom() {
             />
         </div>
 
-        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <RiLockPasswordFill className="text-[1.8rem]"/>
+        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
+          <RiLockPasswordFill className="text-[1.6rem]"/>
 
           <input
             type="password"
@@ -99,7 +99,7 @@ export default function SignUpFrom() {
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
 
-        <button type="submit" className="block rounded-md mt-2 bg-green-500 w-fit text-black text-[1.6rem] font-bold px-20 py-2 hover:bg-green-300 cursor-pointer">Register</button>
+        <button type="submit" className="block rounded-md mt-2 bg-amber-600 w-fit text-black text-[1.4rem] font-bold px-20 py-2 hover:bg-amber-300 cursor-pointer">Register</button>
 
       </form>
     </div>
