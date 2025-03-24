@@ -20,8 +20,7 @@ export default function SignUpPage() {
             </div>
 
             <div className="w-[50%] h-screen relative">
-                <Image src={'/img/massage-therapy.jpg'} alt="welcome image" objectFit='cover' fill={true}
-                ></Image>
+                <Image src={'/img/massage-therapy.jpg'} alt="welcome image" objectFit='cover' fill={true}/>
             </div>
         </div>
     );

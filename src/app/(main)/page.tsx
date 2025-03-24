@@ -1,13 +1,23 @@
-const textShadow = {textShadow: "2.5px 4px 0px black"}
+import styles from '@/app/(main)/page.module.css';
+// import { useSession } from "next-auth/react";
 
 export default function Home() {
+  // const { data:session } = useSession();
+
   return (
     <main>
       {/* Home Section */}
-      <section className="flex justify-start items-center relative min-h-[100vh]">
-        <div style={textShadow} className="relative z-10 pl-[5rem] text-(--color-text-light)">
-          <h5 className="font-bold text-3xl">Welcome to</h5>
-          <h1 className="font-bold text-[4rem]">The Massage Shop</h1>
+      <section className={styles.container}>
+        <div className={styles.text_container}>
+          <h1 className='text-[3rem]'>Welcome to</h1>
+
+          <h5 className={styles.title}>The Massage Shop</h5>
+
+          {/* {
+            session ? (
+              <h1 className='text-[4rem]'>{session?.user?.name}</h1>
+            ) : null
+          } */}
         </div>
       </section>
     </main>

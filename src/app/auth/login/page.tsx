@@ -20,8 +20,7 @@ export default function LogInPage() {
             </div>
 
             <div className="w-[60%] h-screen relative">
-                <Image src={'/img/candles.jpg'} alt="welcome image" objectFit='cover' fill={true}
-                ></Image>
+                <Image src={'/img/candles.jpg'} alt="welcome image" objectFit='cover' fill={true}/>
             </div>
         </div>
     );

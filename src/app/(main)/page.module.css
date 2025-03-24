@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Gwendolyn:wght@700&family=Poppins&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/img/flower.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px) brightness(60%);
+}
+
+.text_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: white;
+    font-family: "Gwendolyn", cursive;
+    position: absolute;
+    z-index: 2;
+}
+
+.title {
+    font-family: "Gwendolyn", cursive;
+    font-weight: 700;
+    font-size: 9rem;
+}
