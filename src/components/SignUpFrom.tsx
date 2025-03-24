@@ -1,16 +1,13 @@
 'use client'
 
 import React, { useState } from "react";
-// import InputItem from "./InputItem";
-// import { redirect, useSearchParams } from "next/navigation";
+import InputItem from "./InputItem";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 
 export default function SignUpFrom() {
-//   const query = useSearchParams();
-
   const [email, setEmail] = useState('');
   const [contactNum, setContactNum] = useState('');
   const [username, setUsername] = useState('');
@@ -38,64 +35,18 @@ export default function SignUpFrom() {
     setContactNum(e.target.value);
   }
 
+  const formWidth = 55;
+
   return(
     <div className="w-full h-auto">
       <form action={handleSubmit} className="flex flex-col gap-6 justify-center items-center text-white">
-        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <IoPersonSharp className="text-[1.6rem]"/>
+        <InputItem id="username" type="text" isRequired={true} tag={<IoPersonSharp />} width={formWidth} onValueChange={handleUsernameChange}/>
 
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={handleUsernameChange}
-            placeholder="Username"
-            required
-            className="w-full bg-transparent outline-none focus:ring-0"
-            />
-        </div>
+        <InputItem id="contact number" type="tel" isRequired={true} tag={<FaPhoneAlt />} width={formWidth} onValueChange={handleContactNumChange}/>
 
-        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <FaPhoneAlt className="text-[1.6rem]"/>
+        <InputItem id="email" type="email" isRequired={true} tag={<MdEmail />} width={formWidth} onValueChange={handleEmailChange}/>
 
-          <input
-            type="tel"
-            id="contactNumber"
-            value={contactNum}
-            onChange={handleContactNumChange}
-            placeholder="Contact number"
-            required
-            className="w-full bg-transparent outline-none focus:ring-0"
-            />
-        </div>
-        
-        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <MdEmail className="text-[1.6rem]"/>
-
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-            placeholder="Email"
-            required
-            className="w-full bg-transparent outline-none focus:ring-0"
-            />
-        </div>
-
-        <div className="flex flex-row px-4 py-3 bg-gray-800 text-white rounded-lg w-[55%] gap-3">
-          <RiLockPasswordFill className="text-[1.6rem]"/>
-
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            placeholder="Password"
-            required
-            className="w-full bg-transparent outline-none focus:ring-0"
-            />
-        </div>
+        <InputItem id="password" type="password" isRequired={true} tag={<RiLockPasswordFill />} width={formWidth} onValueChange={handlePasswordChange}/>
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
 

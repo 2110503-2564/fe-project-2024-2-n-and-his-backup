@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import React, { useState } from "react";
-// import InputItem from "./InputItem";
+import InputItem from "./InputItem";
 import { redirect, useSearchParams } from "next/navigation";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
@@ -42,7 +42,7 @@ export default function LogInForm() {
   };
 
   function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(typeof e);
+    // console.log(typeof e);
     setEmail(e.target.value);
   }
   
@@ -50,41 +50,18 @@ export default function LogInForm() {
     setPassword(e.target.value);
   }
 
+  const formWidth = 80;
+
   return(
     <div className="w-full h-auto">
       <form action={handleSubmit} className="flex flex-col gap-6 items-start text-white">
-        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[80%] gap-3">
-          <MdEmail className="text-[1.6rem]"/>
+        <InputItem id="email" type="email" isRequired={true} tag={<MdEmail />} width={formWidth} onValueChange={handleEmailChange}/>
 
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-            placeholder="Email"
-            required
-            className="w-full bg-transparent outline-none focus:ring-0"
-            />
-        </div>
-
-        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[80%] gap-3">
-          <RiLockPasswordFill className="text-[1.6rem]"/>
-
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            placeholder="Password"
-            required
-            className="w-full bg-transparent outline-none focus:ring-0"
-            />
-        </div>
+        <InputItem id="password" type="password" isRequired={true} tag={<RiLockPasswordFill />} width={formWidth} onValueChange={handlePasswordChange}/>
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        
-        <button type="submit" className="block rounded-md mt-3 bg-amber-600 w-fit text-black text-[1.35rem] font-bold px-10 py-2 hover:bg-amber-300 cursor-pointer">Log In</button>
 
+        <button type="submit" className="block rounded-md mt-3 bg-amber-600 w-fit text-black text-[1.35rem] font-bold px-10 py-2 hover:bg-amber-300 cursor-pointer">Log In</button>
       </form>
     </div>
   );
