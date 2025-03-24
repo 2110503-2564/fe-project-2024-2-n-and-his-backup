@@ -10,7 +10,7 @@ export default function LogInPage() {
                     <h1 className="text-[2.4rem] font-bold mb-3">Log in to your account</h1>
 
                     <p className="mb-9">Don't have an account? 
-                        <Link className="text-green-500 mx-2 font-bold cursor-pointer hover:text-white" href="/auth/signup">
+                        <Link className="text-green-500 mx-2 font-bold cursor-pointer hover:text-green-300" href="/auth/signup">
                             Sign-Up
                         </Link>
                     </p>
@@ -23,8 +23,6 @@ export default function LogInPage() {
                 <Image src={'/img/candles.jpg'} alt="welcome image" objectFit='cover' fill={true}
                 ></Image>
             </div>
-
-
         </div>
     );
 }

@@ -81,7 +81,7 @@ export default function LogInForm() {
             />
         </div>
 
-        <button type="submit" className="block rounded-md mt-4 bg-green-500 w-fit text-black text-[1.4rem] font-bold px-10 py-2 hover:bg-green-300 cursor-pointer">Log In</button>
+        <button type="submit" className="block rounded-md mt-4 bg-green-500 w-fit text-black text-[1.6rem] font-bold px-10 py-2 hover:bg-green-300 cursor-pointer">Log In</button>
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
