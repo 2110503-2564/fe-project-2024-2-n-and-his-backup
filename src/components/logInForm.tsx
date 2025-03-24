@@ -2,8 +2,11 @@
 
 import { signIn } from "next-auth/react";
 import React, { useState } from "react";
-import InputItem from "./InputItem";
+// import InputItem from "./InputItem";
 import { redirect, useSearchParams } from "next/navigation";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 
 export default function LogInForm() {
   const query = useSearchParams();
@@ -48,13 +51,11 @@ export default function LogInForm() {
   }
 
   return(
-    <div className="flex justify-center items-center flex-col text-[1.5rem]">
-      <h2 className="text-[2rem] font-bold my-[1rem]">Login</h2>
+    <div className="w-full h-auto">
+      <form action={handleSubmit} className="flex flex-col gap-6 items-start text-white">
+        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[80%] gap-3">
+          <MdEmail className="text-[1.8rem]"/>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      <form action={handleSubmit} className="flex flex-col gap-3 items-center">
-        <div>
           <input
             type="email"
             id="email"
@@ -62,11 +63,12 @@ export default function LogInForm() {
             onChange={handleEmailChange}
             placeholder="Email"
             required
-            className="pl-[10px] border-b-2 p-2"
-          />
+            className="w-full bg-transparent outline-none focus:ring-0"
+            />
         </div>
 
-        <div>
+        <div className="flex flex-row px-4 py-2 bg-gray-800 text-white rounded-lg w-[80%] gap-3">
+          <RiLockPasswordFill className="text-[1.8rem]"/>
 
           <input
             type="password"
@@ -75,11 +77,13 @@ export default function LogInForm() {
             onChange={handlePasswordChange}
             placeholder="Password"
             required
-            className="pl-[10px] border-b-2 p-2"
-          />
+            className="w-full bg-transparent outline-none focus:ring-0"
+            />
         </div>
 
-        <button type="submit" className="mt-[1rem] bg-green-500 w-fit text-black font-bold px-5 py-2 hover:bg-green-300 cursor-pointer">Log In</button>
+        <button type="submit" className="block rounded-md mt-4 bg-green-500 w-fit text-black text-[1.4rem] font-bold px-10 py-2 hover:bg-green-300 cursor-pointer">Log In</button>
+
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </div>
   );
