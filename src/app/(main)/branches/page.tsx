@@ -53,12 +53,11 @@ export default function Branches() {
     const promise = getBranches();
 
     return (
-        <main className="mt-[80px]">
+        <main className='pt-[80px]'>
             <div className="flex justify-center items-center gap-20">
                 <Suspense fallback={<LinearProgress/>}>
                     <BranchesList getBranches={promise}/>
                 </Suspense>
-                
             </div>
         </main>
     );

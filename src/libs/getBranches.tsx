@@ -1,7 +1,9 @@
+"use server"
+
 const BACKEND_URL = process.env.BACKEND_URL;
 
 export default async function getBranches() {
-    
+
     const response = await fetch(BACKEND_URL + "/api/v1/branches");
     const json = await response.json();
 

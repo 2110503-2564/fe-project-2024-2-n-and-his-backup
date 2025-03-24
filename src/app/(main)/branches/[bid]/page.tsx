@@ -7,11 +7,13 @@ export default async function ViewBranch({params} : {params: {bid: string}}) {
     const { bid } = await params;
     const branch = await getBranch(bid);
 
+   if (!branch) return <div className='text-white'>This Branch does not exist</div>
+
     const lat = branch.latitude;
     const lon = branch.longitude
 
     return (
-    <div className="text-white w-full pt-[80px] h-full">
+    <div className="text-white w-full h-full pt-[80px]">
         <div className="flex h-full w-full p-4 gap-4">
             <div className="w-[35%] flex flex-col gap-4">
                 <Image
