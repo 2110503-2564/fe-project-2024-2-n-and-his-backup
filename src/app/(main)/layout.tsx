@@ -5,9 +5,11 @@ const font = Montserrat_Alternates({weight: ["400", "800"], subsets: ["latin"]})
 
 export default function MainLayout({children} : {children: React.ReactNode}) {
     return (
-        <main className={font.className}>
+        <main className={font.className + "m-0 h-[100vh] box-border"}>
             <NavBar/>
-            {children}
+            <div className="h-full">
+                {children}
+            </div>
         </main>
     );
 }

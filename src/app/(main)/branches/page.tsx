@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import Link from 'next/link';
 
 async function BranchesList({getBranches} : {getBranches: Promise<Array<any>>}) {
-    await new Promise((resolve) => setTimeout(() => {resolve()}, 2000))
+    // await new Promise((resolve) => setTimeout(() => {resolve()}, 2000))
     const response = await getBranches;
 
     return (
@@ -16,7 +16,7 @@ async function BranchesList({getBranches} : {getBranches: Promise<Array<any>>}) 
                 response.map((item) => (
                     <div key={item.id} className="w-[20rem] h-[25rem] border-[1px] border-white/50 shadow-2xl shadow-gray-700/50 rounded-2xl overflow-clip flex flex-col items-center hover:scale-[1.02] duration-100">
                         <Image
-                        src={item.image}
+                        src="/img/2.png" //{item.image}
                         alt="Image"
                         width={0}
                         height={0}
@@ -36,7 +36,7 @@ async function BranchesList({getBranches} : {getBranches: Promise<Array<any>>}) 
                                 <div className='space-x-4'>
                                     <i className="fa-solid fa-phone"></i>
 
-                                    <div className='inline'>{item.tel}</div>
+                                    <div className='inline'>{item.telephone.join(", ")}</div>
                                 </div>
                             </div>
                         </div>
