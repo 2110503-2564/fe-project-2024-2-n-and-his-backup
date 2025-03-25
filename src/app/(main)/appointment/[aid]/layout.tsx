@@ -2,8 +2,14 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions"
 import getAppointment from "@/libs/getAppointment";
 import { getServerSession } from "next-auth"
 
-export default async function Layout({children, params} : {children: React.ReactNode, params: {aid: string}}) {
+interface LayoutProps {
+    children: React.ReactNode;
+    params: Promise<{ aid: string }>;
+  }
+
+export default async function Layout({children, params} : LayoutProps) {
     const { aid } = await params;
+
     const session = await getServerSession(authOptions);
     const token = (session?.user as any).token;
 

@@ -4,7 +4,7 @@ import getBranch from "@/libs/getBranch";
 import Image from "next/image";
 import Link from 'next/link';
 
-export default async function ViewBranch({params} : {params: {bid: string}}) {
+export default async function ViewBranch({params} : {params: Promise<{bid: string}>}) {
     const { bid } = await params;
     const branch = await getBranch(bid);
 

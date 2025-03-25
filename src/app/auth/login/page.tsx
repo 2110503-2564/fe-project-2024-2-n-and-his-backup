@@ -1,6 +1,7 @@
 import LogInForm from "@/components/logInForm"
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function LogInPage() {
     return (
@@ -14,8 +15,9 @@ export default function LogInPage() {
                             Sign-Up
                         </Link>
                     </p>
-
-                    <LogInForm/>
+                    <Suspense fallback={"loading"}>
+                        <LogInForm/>
+                    </Suspense>
                 </div>
             </div>
 
