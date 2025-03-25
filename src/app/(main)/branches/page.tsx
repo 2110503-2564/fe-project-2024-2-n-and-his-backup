@@ -6,6 +6,11 @@ import Image from "next/image";
 import { Suspense } from "react";
 import Link from 'next/link';
 import NavBar from '@/components/home/NavBar';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "The Massage Shop Branches"
+  };
 
 async function BranchesList() {
     // await new Promise((resolve: any) => setTimeout(() => {resolve()}, 2000))
@@ -42,7 +47,7 @@ async function BranchesList() {
                             </div>
                         </div>
                         
-                        <Link href={"/branches/" + item.id} className='px-5 py-2 bg-green-600 w-fit rounded font-bold hover:bg-green-400 duration-100'>View</Link>
+                        <Link href={"/branches/" + item.id} className='px-5 py-2 bg-amber-500 w-fit rounded font-bold hover:bg-amber-300 duration-100'>View</Link>
                     </div> 
                 ))
             }

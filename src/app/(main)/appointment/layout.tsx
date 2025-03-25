@@ -4,8 +4,13 @@ import Protect from "@/components/Protect";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 import { getServerSession } from "next-auth";
 import { Montserrat_Alternates } from "next/font/google";
+import { Metadata } from "next";
 
 const font = Montserrat_Alternates({weight: ["400", "800"], subsets: ["latin"]})
+
+export const metadata: Metadata = {
+    title: "The Appointment"
+  };
 
 export default async function MainLayout({children} : {children: React.ReactNode}) {
     const session = await getServerSession(authOptions);

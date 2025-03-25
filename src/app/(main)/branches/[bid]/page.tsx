@@ -4,6 +4,12 @@ import getBranch from "@/libs/getBranch";
 import Image from "next/image";
 import Link from 'next/link';
 import NavBar from '@/components/home/NavBar';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+    title: "Branch"
+  };
 
 export default async function ViewBranch({params} : {params: Promise<{bid: string}>}) {
     const { bid } = await params;
