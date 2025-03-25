@@ -9,7 +9,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: "Branch"
-  };
+};
 
 export default async function ViewBranch({params} : {params: Promise<{bid: string}>}) {
     const { bid } = await params;
