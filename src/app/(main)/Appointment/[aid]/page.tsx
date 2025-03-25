@@ -83,7 +83,7 @@ export default function EditAppointment() {
 
 
     return (
-        <main className="h-ful">
+        <main>
             <div className="w-full h-full flex flex-col justify-center items-center gap-5">
                 <div className="font-bold text-4xl text-white">Update Appointment</div>
                 <div className="w-[60vw] h-[70vh] bg-neutral-800 flex shadow-lg rounded flex-col items-center overflow-auto">
@@ -92,7 +92,7 @@ export default function EditAppointment() {
                         <Page1 fns={fns} visible={page == 0} />
                         <Page2 fns={fns} visible={page == 1} />
                     </div>
-                    <div className="relative w-full h-fit flex justify-center p-3 items-center">
+                    <div className="relative w-full h-fit flex justify-center p-3 items-center text-black">
                         {
                             page > 0 ?
                                 <button className="absolute left-0 m-3 bg-blue-300 px-5 py-2 text-2xl font-bold rounded cursor-pointer" onClick={onBack}>Back</button>

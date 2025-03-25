@@ -14,9 +14,9 @@ export default async function MainLayout({children} : {children: React.ReactNode
     return (
         <NextAuthProvider session={session}>
             <Protect>
-                <main className={font.className + "m-0 h-[100vh] box-border pt-[80px]"}>
+                <main className="m-0 h-[100vh] box-border pt-[80px]">
                     <NavBar/>
-                    <div className="h-full">
+                    <div className={"h-full " + font.className}>
                         {children}
                     </div>
                 </main>

@@ -1,3 +1,4 @@
+"use server"
 const BACKEND_URL = process.env.BACKEND_URL;
 
 export default async function getBranch(bid: string) {

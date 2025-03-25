@@ -41,7 +41,7 @@ async function BranchesList() {
                             </div>
                         </div>
                         
-                        <Link href={"/branches/" + item.id} className='px-5 py-2 bg-white w-fit rounded font-bold hover:bg-green-300 duration-100'>View</Link>
+                        <Link href={"/branches/" + item.id} className='px-5 py-2 bg-green-600 w-fit rounded font-bold hover:bg-green-400 duration-100'>View</Link>
                     </div> 
                 ))
             }

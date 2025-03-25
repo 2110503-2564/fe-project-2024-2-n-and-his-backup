@@ -6,6 +6,8 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
+import { redirect } from "next/navigation";
+import createAccount from "@/libs/createAccount";
 
 export default function SignUpFrom() {
   const [email, setEmail] = useState('');
@@ -16,6 +18,21 @@ export default function SignUpFrom() {
 
   const handleSubmit = async (formData: FormData) => {
     // function for sign up
+    // if (password != password2) return setError("Password does not match");
+
+    const body = {
+      name: username,
+      email: email,
+      password: password,
+      phoneNo: contactNum
+    }
+
+    const result = await createAccount(body);
+    if (result.success) {
+      redirect("/auth/login");
+    } else {
+      setError("Cannot Register")
+    }
   };
 
   function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
