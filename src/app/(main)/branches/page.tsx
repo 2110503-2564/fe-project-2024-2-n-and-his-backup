@@ -6,14 +6,14 @@ import Image from "next/image";
 import { Suspense } from "react";
 import Link from 'next/link';
 
-async function BranchesList({getBranches} : {getBranches: Promise<Array<any>>}) {
-    // await new Promise((resolve) => setTimeout(() => {resolve()}, 2000))
-    const response = await getBranches;
+async function BranchesList() {
+    // await new Promise((resolve: any) => setTimeout(() => {resolve()}, 2000))
+    const response = await getBranches();
 
     return (
         <>
             {
-                response.map((item) => (
+                response.map((item: any) => (
                     <div key={item.id} className="w-[20rem] h-[25rem] border-[1px] border-white/50 shadow-2xl shadow-gray-700/50 rounded-2xl overflow-clip flex flex-col items-center hover:scale-[1.02] duration-100">
                         <Image
                         src="/img/2.png" //{item.image}
@@ -50,15 +50,13 @@ async function BranchesList({getBranches} : {getBranches: Promise<Array<any>>}) 
 }
 
 export default function Branches() {
-    const promise = getBranches();
-
     return (
-        <main className='pt-[80px]'>
-            <div className="flex justify-center items-center gap-20">
-                <Suspense fallback={<LinearProgress/>}>
-                    <BranchesList getBranches={promise}/>
-                </Suspense>
-            </div>
+        <main className='pt-[80px] w-full'>
+            <Suspense fallback={<LinearProgress/>}>
+                <div className="flex justify-center items-center gap-5 w-full">
+                    <BranchesList/>
+                </div>
+            </Suspense>
         </main>
     );
 }

@@ -7,7 +7,7 @@ export default async function NavBar() {
     const session = await getServerSession(authOptions);
 
     return (
-        <header className="fixed top-0 h-[100px] w-full py-[1rem] px-10 flex justify-between items-center z-30 duration-300 text-[.9rem]">
+        <header className="fixed top-0 h-[80px] w-full py-[1rem] px-10 flex justify-between items-center z-30 duration-300 text-[1rem]">
             <nav className="flex gap-14">
                 <NavBarItem href="/" content="Home"/>
 
@@ -21,7 +21,7 @@ export default async function NavBar() {
                 }
             </nav>
 
-            <nav className="text-[1.05rem]">
+            <nav className="text-[1rem]">
                 {
                     session? (
                         /* --- Log out btn --- */

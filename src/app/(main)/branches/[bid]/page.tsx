@@ -2,6 +2,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import getBranch from "@/libs/getBranch";
 import Image from "next/image";
+import Link from 'next/link';
 
 export default async function ViewBranch({params} : {params: {bid: string}}) {
     const { bid } = await params;
@@ -57,10 +58,10 @@ export default async function ViewBranch({params} : {params: {bid: string}}) {
                         ))
                     }
                 </div>
-                <button className="px-5 py-1 bg-green-600 rounded text-xl font-bold absolute bottom-5 left-0 right-0 m-auto w-fit cursor-pointer
-                hover:bg-green-400 duration-150">
-                    Create Appointment<br/>on this Branch
-                    </button>
+                <Link href={"/appointment/new?branch=" + bid} className="px-5 py-1 bg-green-600 rounded text-xl font-bold absolute bottom-5 left-0 right-0 m-auto w-fit cursor-pointer
+                hover:bg-green-400 duration-150 text-center">
+                Create Appointment<br/>on this Branch
+                </Link>
             </div>
             
         </div>

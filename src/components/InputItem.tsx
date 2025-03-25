@@ -26,7 +26,7 @@ export default function InputItem({
             type={type}
             id={id}
             value={value}
-            onChange={(e) => {setValue(e.target.value); onValueChange(e.target.value)}}
+            onChange={(e) => {setValue(e.target.value); onValueChange(e)}}
             placeholder={`Enter your ${id}`}
             required={isRequired}
             className="w-full bg-transparent outline-none focus:ring-0"

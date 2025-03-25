@@ -1,25 +1,29 @@
 "use client"
 
-import { LinearProgress } from "@mui/material"
 import React, { useEffect, useState } from 'react';
 import getBranches from "@/libs/getBranches";
-import createAppointment from "@/libs/createAppointment";
 import { useSession } from "next-auth/react";
-import { redirect, useSearchParams } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 import dayjs, { Dayjs } from "dayjs";
-import Page1 from "@/components/appointment/Page1";
-import Page2 from "@/components/appointment/Page2";
+import getAppointment from "@/libs/getAppointment";
+import updateAppointment from "@/libs/updateAppointment";
+import { LinearProgress } from '@mui/material';
+import Page1 from '@/components/appointment/Page1';
+import Page2 from '@/components/appointment/Page2';
 
-export default function CreateAppointment() {
-    const query: any = useSearchParams();
+
+export default function EditAppointment() {
+    const { aid } = useParams();
+
     const { data: session } = useSession();
 
     if (!session?.user) return null;
+    const token = (session?.user as any).token;
 
     const [page, setPage] = useState(0);
     const [branchData, setBranchData] = useState([]);
 
-    const [branch, setBranch] = useState(query.get("branch"));
+    const [branch, setBranch] = useState("");
     const [service, setService] = useState("");
     const [date, setDate] = useState<Dayjs | null>(null);
     const [timeBegin, setTimeBegin] = useState("");
@@ -27,7 +31,7 @@ export default function CreateAppointment() {
 
     function onBack() { setPage(page - 1); }
     function onNext() { setPage(page + 1); }
-    async function create() {
+    async function update() {
         if (!(branch && service && date && timeBegin && timeEnd)) {
             alert("Please fill in completely");
             return;
@@ -41,16 +45,25 @@ export default function CreateAppointment() {
             timeEnd: dayjs(date).add(parseInt(timeEnd), 'hour').toISOString()
         }
 
-        const result = await createAppointment((session?.user as any).token, body);
+        const result = await updateAppointment(token, aid as string, body);
         if (result) {
             redirect('/appointment');
         } else {
-            alert("Cannot Create Appointment");
+            alert("Cannot Update Appointment");
         }
     }
 
     useEffect(() => {
         async function fetchData() {
+            const appt = await getAppointment(token, aid as string);
+            if (appt != null) {
+                setBranch(appt.data.branchId._id);
+                setService(appt.data.service);
+                setDate(dayjs(appt.data.timeStart).hour(0));
+                setTimeBegin(dayjs(appt.data.timeStart).format("H"));
+                setTimeEnd(dayjs(appt.data.timeEnd).format("H"));
+            }
+
             const data2 = await getBranches()
             setBranchData(data2);
         }
@@ -68,10 +81,11 @@ export default function CreateAppointment() {
         timeEnd: [timeEnd, setTimeEnd]
     }
 
+
     return (
         <main className="h-ful">
             <div className="w-full h-full flex flex-col justify-center items-center gap-5">
-                <div className="font-bold text-4xl text-white">Create Appointment</div>
+                <div className="font-bold text-4xl text-white">Update Appointment</div>
                 <div className="w-[60vw] h-[70vh] bg-neutral-800 flex shadow-lg rounded flex-col items-center overflow-auto">
                     <LinearProgress variant="determinate" value={page * 100} className="w-full" />
                     <div className="grow w-full">
@@ -90,7 +104,7 @@ export default function CreateAppointment() {
                             page < 1 ?
                                 <button className="absolute right-0 m-3 bg-blue-300 px-5 py-2 text-2xl font-bold rounded cursor-pointer" onClick={onNext}>Next</button>
                                 :
-                                <button className="absolute right-0 m-3 bg-green-300 px-5 py-2 text-2xl font-bold rounded cursor-pointer" onClick={create}>Create</button>
+                                <button className="absolute right-0 m-3 bg-green-300 px-5 py-2 text-2xl font-bold rounded cursor-pointer" onClick={update}>Update</button>
                         }
                     </div>
 
