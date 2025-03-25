@@ -13,7 +13,12 @@ import { AppointmentList, AppointmentListAdmin } from '@/components/appointment/
 async function AppointmentContainer({token}: {token: string}) {
     const data = await getAppointment(token);
 
-    if (!data || data.length == 0) {
+    let upCommingCount = 0;
+    data.forEach((item: any) => {
+        if (item.status == "pending" || item.status == "accepted") upCommingCount++;
+    })
+
+    if (!data || upCommingCount == 0) {
         return (
         <>
             <Link href="/appointment/new" className="px-3 py-1 rounded text-black bg-green-400 font-bold text-xl w-fit hover:bg-green-300 duration-100">Create Appointment</Link>
@@ -21,11 +26,6 @@ async function AppointmentContainer({token}: {token: string}) {
         </>
         );
     }
-
-    let upCommingCount = 0;
-    data.forEach((item: any) => {
-        if (item.status == "pending" || item.status == "accepted") upCommingCount++;
-    })
 
     return (
         <>
