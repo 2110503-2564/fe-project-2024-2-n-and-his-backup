@@ -5,6 +5,7 @@ import { LinearProgress } from "@mui/material";
 import Image from "next/image";
 import { Suspense } from "react";
 import Link from 'next/link';
+import NavBar from '@/components/home/NavBar';
 
 async function BranchesList() {
     // await new Promise((resolve: any) => setTimeout(() => {resolve()}, 2000))
@@ -52,6 +53,7 @@ async function BranchesList() {
 export default function Branches() {
     return (
         <main className='pt-[80px] w-full'>
+            <NavBar/>
             <Suspense fallback={<LinearProgress/>}>
                 <div className="flex justify-center items-center gap-5 w-full">
                     <BranchesList/>

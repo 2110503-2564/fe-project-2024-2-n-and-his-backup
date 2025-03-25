@@ -1,4 +1,5 @@
 import styles from '@/app/(main)/page.module.css';
+import NavBar from '@/components/home/NavBar';
 // import { useSession } from "next-auth/react";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
 
   return (
     <main>
+      <NavBar/>
       {/* Home Section */}
       <section className={styles.container}>
         <div className={styles.text_container}>

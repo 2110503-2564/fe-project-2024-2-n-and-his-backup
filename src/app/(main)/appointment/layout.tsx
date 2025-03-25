@@ -8,9 +8,7 @@ import { Montserrat_Alternates } from "next/font/google";
 const font = Montserrat_Alternates({weight: ["400", "800"], subsets: ["latin"]})
 
 export default async function MainLayout({children} : {children: React.ReactNode}) {
-
     const session = await getServerSession(authOptions);
-
     return (
         <NextAuthProvider session={session}>
             <Protect>
